@@ -4,11 +4,18 @@ import { GoArrowLeft } from "react-icons/go";
 
 function App() {
   const [color, setColor] = useState(1);
+  const [count, setCount] = useState(0);
   const [images, setImages] = useState([
     "/assets/image.jpg",
     "/assets/image.jpg",
     "/assets/image.jpg",
   ]);
+
+
+  const IMAGE_WIDTH = 190; 
+  const GAP = 36; 
+  const VISIBLE_COUNT = 3;
+  const maxCount = images.length - VISIBLE_COUNT;
 
   return (
     <div className="relative w-[1728px] h-[895px] rounded-[28px] rotate-0 opacity-100 bg-[linear-gradient(180deg,#373E44_-100%,#191B1F_100%)] shadow-[10px_10px_40px_10px_#00000080]">
@@ -100,12 +107,14 @@ function App() {
                 </button>
                 <div src="src\assets\react.svg">
                   <GoArrowLeft
+                    onClick={()=>{if(count>0)setCount(count-1)}}
                     size={40}
                     className="border-white border cursor-pointer hover:bg-zinc-900 shadow-lg shadow-gray-500 bg-zinc-700  rounded-4xl text-white"
                   />
                 </div>
                 <div src="src\assets\react.svg">
                   <GoArrowRight
+                    onClick={()=>{if(count+3<images.length)setCount(count+1)}}
                     size={40}
                     className="border-white border  cursor-pointer hover:bg-zinc-900 shadow-lg shadow-gray-500 bg-zinc-700 text-white rounded-4xl"
                   />
@@ -115,11 +124,16 @@ function App() {
           </div>
 
           <div className=" justify-center flex h-11/16">
-            <div className="overflow-y-hidden overflow-x-auto  mt-4 gap-9 w-9/10 flex items-center">
+            <div className="overflow-y-hidden transition-transform duration-400 overflow-x-hidden  mt-4 gap-9 w-9/10 flex items-center"
+            
+            >
               {images.map((img, index) => (
                 <img
+                  style={{
+                    transform: `translateX(-${count * (IMAGE_WIDTH + GAP)}px)`,
+                  }}
                   key={index}
-                  className=" filter grayscale transition-transform duration-400 hover:scale-120 hover:grayscale-0   origin-top-left shrink-0 w-[190px] h-[179px] rounded-[24px]"
+                  className=" filter grayscale transition-transform duration-400 hover:scale-115 hover:grayscale-0   origin-top-left shrink-0 w-[190px] h-[179px] rounded-[24px]"
                   src={img}
                 />
               ))}
