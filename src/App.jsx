@@ -119,7 +119,7 @@ function App() {
               {images.map((img, index) => (
                 <img
                   key={index}
-                  className=" filter grayscale transition-transform duration-400 hover:scale-120   origin-top-left shrink-0 w-[190px] h-[179px] rounded-[24px]"
+                  className=" filter grayscale transition-transform duration-400 hover:scale-120 hover:grayscale-0   origin-top-left shrink-0 w-[190px] h-[179px] rounded-[24px]"
                   src={img}
                 />
               ))}
