@@ -5,9 +5,9 @@ import { GoArrowLeft } from "react-icons/go";
 function App() {
   const [color, setColor] = useState(1);
   const [images, setImages] = useState([
-    "src/assets/image.jpg",
-    "src/assets/image.jpg",
-    "src/assets/image.jpg",
+    "/assets/image.jpg",
+    "/assets/image.jpg",
+    "/assets/image.jpg",
   ]);
 
   return (
@@ -93,7 +93,7 @@ function App() {
 
               <div className="flex gap-4 w-1/2 justify-between">
                 <button
-                  onClick={() => setImages([...images, "src/assets/image.jpg"])}
+                  onClick={() => setImages([...images, "/assets/image.jpg"])}
                   className="bg-[#363C43] hover:bg-zinc-900 top-4 cursor-pointer border-gray-200 border p-3 px-4 rounded-3xl text-white shadow-lg shadow-gray-500"
                 >
                   + Add More
