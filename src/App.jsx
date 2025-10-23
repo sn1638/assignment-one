@@ -95,7 +95,7 @@ function App() {
           <div className="justify-center flex h-1/4">
             <div className="w-9/10 flex justify-between items-center bg-[#363C43] ">
               <button className="bg-black p-3 px-8 rounded-xl text-white">
-                Gallary
+                Gallary({images.length})
               </button>
 
               <div className="flex gap-4 w-1/2 justify-between">
